@@ -1,0 +1,30 @@
+package com.example.employee_api.order.controller;
+
+import com.example.employee_api.order.model.Order;
+import com.example.employee_api.order.service.OrderService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/v1/orders")
+public class OrderController {
+
+    private final OrderService orderService;
+
+    public OrderController(OrderService orderService) {
+        this.orderService = orderService;
+    }
+
+    // tìm theo trạng thái
+    @GetMapping("/searchStatus")
+    public List<Order> searchByStatus(@RequestParam String status) {
+        return orderService.getOrdersByStatus(status);
+    }
+
+    // tìm theo tên khách hàng
+    @GetMapping("/searchByCustomerName")
+    public List<Order> searchByCustomerName(@RequestParam String customerName) {
+        return orderService.getOrdersByCustomerName(customerName);
+    }
+}
