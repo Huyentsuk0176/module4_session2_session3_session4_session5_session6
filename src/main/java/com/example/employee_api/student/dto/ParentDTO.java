@@ -5,6 +5,7 @@ import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
+import com.example.employee_api.validation.ViettelPhone;
 
 @Getter
 @Setter
@@ -16,7 +17,6 @@ public class ParentDTO {
     private String name;
 
     @NotBlank(message = "Phone number cannot be blank")
-    @Pattern(regexp = "^\\d{10}$", message = "Phone number must be exactly 10 digits")
+    @ViettelPhone
     private String phone;
-
 }
