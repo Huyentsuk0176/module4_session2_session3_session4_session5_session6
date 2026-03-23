@@ -1,26 +1,40 @@
 package com.example.employee_api.model;
 
-import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.*;
-
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class Employee {
-
     private Long id;
     private String fullName;
-    private String email;
-    private String phone;
     private Double salary;
-    private Long departmentId;
 
+    public Employee() {
+    }
 
+    public Employee(Long id, String fullName, Double salary) {
+        this.id = id;
+        this.fullName = fullName;
+        this.salary = salary;
+    }
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public Double getSalary() {
+        return salary;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public void setSalary(Double salary) {
+        this.salary = salary;
+    }
 }
-

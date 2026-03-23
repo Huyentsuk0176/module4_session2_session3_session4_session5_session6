@@ -30,8 +30,8 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiResponse<Object>> handleAll(Exception ex) {
         ex.printStackTrace();
-        return ResponseEntity.ok(
-                new ApiResponse<>("FAIL", "Loi he thong", null)
-        );
+        return ResponseEntity
+                .status(500)
+                .body(new ApiResponse<>("FAIL", ex.getMessage(), null));
     }
 }
